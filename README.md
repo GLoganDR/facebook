@@ -1,10 +1,10 @@
-## name of project
+## facebook
 ### Code Badges
 build status icon
 coverage status icon
 
 ### About
-write a description about your project
+A class exercise  building a bare-bones simple facebook-like app.
 
 ### Models
 ```
@@ -35,7 +35,7 @@ $ npm test
 ```
 
 ### Contributors
-- [Chyld Medford](https://github.com/chyld)
+- [Logan Richardson](https://github.com/GLoganDR)
 
 ### License
 [MIT](LICENSE)
