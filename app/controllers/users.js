@@ -46,5 +46,41 @@ exports.edit = function(req, res){
 };
 
 exports.update = function(req, res){
-  res.redirect('users/profile');
+  res.locals.user.save(req.body, function(){
+    res.redirect('/profile');
+  });
+};
+
+exports.profile = function(req, res){
+  User.findById(res.locals.user._id, function(err, user){
+    if(user){
+      res.render('users/profile', {user:user});
+    }else{
+      res.redirect('/');
+    }
+  });
+};
+
+exports.index = function(req, res){
+  User.find({isVisible:true}, function(err, users){
+    res.render('users/index', {users:users});
+  });
+};
+
+exports.client = function(req, res){
+  User.findOne({email:req.params.email, isVisible:true}, function(err, client){
+    if(client){
+      res.render('users/client', {client:client});
+    }else{
+      res.redirect('/users');
+    }
+  });
+};
+
+exports.message = function(req, res){
+  User.findById(req.params.userId, function(err, receiver){
+    res.locals.user.send(receiver, req.body, function(){
+      res.redirect('/users/' + receiver.email);
+    });
+  });
 };

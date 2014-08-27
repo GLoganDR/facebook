@@ -4,15 +4,15 @@ block content
   .row
     .col-xs-6
       form(role='form', method='post', action='/profile')
+        input(type='hidden', name='_method', value='put')
         .radio
           label
-            input(type='radio', name='visible', value='public' checked)
+            input(type='radio', name='visible', value='public' checked=user.isVisible)
             span Public
         .radio
           label
-            input(type='radio', name='visible', value='private')
+            input(type='radio', name='visible', value='private', checked=!user.isVisble)
             span Private
-        input(type='hidden', name='_method', value='put')
         .form-group
           label(for='email') Email
           input.form-control#email(type='email', name='email', value=user.email, autofocus=true)
