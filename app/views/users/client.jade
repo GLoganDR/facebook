@@ -10,7 +10,7 @@ block content
         img(src=client.photo)
     .col-xs-10
   .row
-    .col-xs-12
+    .col-xs-6
       table.table.table-striped.table-hover.table-bordered
         thead
           tr
@@ -24,6 +24,7 @@ block content
             td= client.phone
             td: a(href=client.facebook, target='_blank')= client.facebook
             td: a(href=client.twitter, target='_blank')= client.twitter
+    .col-xs-6
   .row
     .col-xs-4
       form(role='form', method='post', action='/message/#{client._id}')

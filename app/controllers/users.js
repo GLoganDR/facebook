@@ -51,14 +51,8 @@ exports.update = function(req, res){
   });
 };
 
-exports.profile = function(req, res){
-  User.findById(res.locals.user._id, function(err, user){
-    if(user){
-      res.render('users/profile', {user:user});
-    }else{
-      res.redirect('/');
-    }
-  });
+exports.show = function(req, res){
+  res.render('users/show');
 };
 
 exports.index = function(req, res){
