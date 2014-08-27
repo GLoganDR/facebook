@@ -28,13 +28,30 @@ describe('users', function(){
     });
   });
 
-  describe('get /register', function(){
-    it('should show the register page', function(done){
+  describe('get /profile/edit', function(){
+    it('should show the edit profile page', function(done){
       request(app)
-      .get('/register')
+      .get('/profile/edit')
+      .set('cookie', cookie)
       .end(function(err, res){
         expect(res.status).to.equal(200);
-        expect(res.text).to.include('Register');
+        expect(res.text).to.include('Email');
+        expect(res.text).to.include('Phone');
+        expect(res.text).to.include('visible');
+        expect(res.text).to.include('bob@aol.com');
+        done();
+      });
+    });
+  });
+
+  describe('put /profile', function(){
+    it('should update information and put to profile', function(done){
+      request(app)
+      .get('/profile')
+      .send('visible=public&_method=put&email=bob%40aol.com&phone=555-555-5555&photo=URl&tagline=Tagline&facebook=Facebook&twitter=Twitter')
+      .set('cookie', cookie)
+      .end(function(err, res){
+        expect(res.status).to.equal(302);
         done();
       });
     });
