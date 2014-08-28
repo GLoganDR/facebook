@@ -1,7 +1,7 @@
 ## facebook
 ### Code Badges
-build status icon
-coverage status icon
+[![Build Status](https://travis-ci.org/GLoganDR/facebook.svg)](https://travis-ci.org/GLoganDR/facebook)
+[![Coverage Status](https://coveralls.io/repos/GLoganDR/facebook/badge.png)](https://coveralls.io/r/GLoganDR/facebook)
 
 ### About
 A class exercise  building a bare-bones simple facebook-like app.
